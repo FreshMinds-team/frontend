@@ -16,7 +16,7 @@ export const AuthProvider = ({ children }) => {
 
     let loginUser = async (e) => {
         e.preventDefault()
-        let response = await fetch('http://127.0.0.1:8000/api/token/', {
+        let response = await fetch('https://shishirr.pythonanywhere.com/api/token/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -35,29 +35,29 @@ export const AuthProvider = ({ children }) => {
         }
     }
 
-    // let registerUser = async (e) => {
-    //     e.preventDefault()
-    //     let response = await fetch('http://127.0.0.1:8000/api/user/add', {
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         },
-    //         body: JSON.stringify({
-    //             'username': e.target.username.value,
-    //             'password': e.target.password.value,
-    //             'email': e.target.email.value,
-    //             'first_name': e.target.first_name.value,
-    //             'last_name': e.target.last_name.value,
-    //         })
-    //     })
-    //     let data = await response.json()
+    let registerUser = async (e) => {
+        e.preventDefault()
+        let response = await fetch('http://127.0.0.1:8000/api/user/add', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                'username': e.target.username.value,
+                'password': e.target.password.value,
+                'email': e.target.email.value,
+                'first_name': e.target.first_name.value,
+                'last_name': e.target.last_name.value,
+            })
+        })
+        let data = await response.json()
 
-    //     if (response.status === 200) {
-    //         navigate('/login')
-    //     } else {
-    //         alert('Something went wrong!')
-    //     }
-    // }
+        if (response.status === 200) {
+            navigate('/login')
+        } else {
+            alert('Something went wrong!')
+        }
+    }
 
 
     let logoutUser = () => {
@@ -70,7 +70,7 @@ export const AuthProvider = ({ children }) => {
 
     let updateToken = async () => {
 
-        let response = await fetch('http://127.0.0.1:8000/api/token/refresh/', {
+        let response = await fetch('https://shishirr.pythonanywhere.com/api/token/refresh/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -97,7 +97,7 @@ export const AuthProvider = ({ children }) => {
         user: user,
         authTokens: authTokens,
         loginUser: loginUser,
-        // registerUser: registerUser,
+        registerUser: registerUser,
         logoutUser: logoutUser,
     }
 
