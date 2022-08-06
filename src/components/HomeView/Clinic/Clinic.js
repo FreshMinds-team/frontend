@@ -1,4 +1,5 @@
 import React from 'react'
+import Carousel from 'react-elastic-carousel';
 
 const Clinic = () => {
     return (
@@ -14,7 +15,7 @@ const Clinic = () => {
                 </div>
                 <div className="row justify-content-center">
                     <div className="col-md-9">
-                        <div className="specialities-slider slider">
+                        <Carousel className="specialities-slider slider">
 
                             <div className="speicality-item text-center">
                                 <div className="speicality-img">
@@ -96,7 +97,7 @@ const Clinic = () => {
                                 <p>OCD</p>
                             </div>
 
-                        </div>
+                        </Carousel>
 
                     </div>
                 </div>

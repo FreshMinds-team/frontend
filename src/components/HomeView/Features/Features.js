@@ -1,4 +1,5 @@
 import React from 'react'
+import Carousel from 'react-elastic-carousel';
 
 const Features = () => {
     return (
@@ -22,7 +23,7 @@ const Features = () => {
                                 therapy.
                             </p>
                         </div>
-                        <div className="features-slider slider">
+                        <Carousel className="features-slider slider">
                             <div className="feature-item text-center">
                                 <img
                                     src="assets/img/features/feature-01.jpg"
@@ -71,7 +72,7 @@ const Features = () => {
                                 />
                                 <p>Always accessible</p>
                             </div>
-                        </div>
+                        </Carousel>
                     </div>
                 </div>
             </div>

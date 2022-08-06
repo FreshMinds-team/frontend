@@ -1,6 +1,7 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-const Title = () => {
+const Title = ({title,subtitle}) => {
     return (
         <div class="breadcrumb-bar">
             <div class="container-fluid">
@@ -8,8 +9,8 @@ const Title = () => {
                     <div class="col-md-12 col-12">
                         <nav aria-label="breadcrumb" class="page-breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index-2.html">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Doctor Profile</li>
+                                <li class="breadcrumb-item"><Link to={'/'}>Home</Link></li>
+                                <li class="breadcrumb-item active" aria-current="page">{title}</li>
                             </ol>
                         </nav>
                         <h2 class="breadcrumb-title">{subtitle}</h2>
