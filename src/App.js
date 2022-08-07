@@ -11,6 +11,7 @@ import AppointmentPage from './pages/AppointmentPage/AppointmentPage';
 import BookingPage from './pages/BookingPage/BookingPage';
 import PatientPage from './pages/PatientPage/PatientPage';
 import Meditation from './pages/Meditation/Meditation';
+import Payment from './pages/Payment/Payment';
 
 function App() {
   return (
@@ -28,7 +29,7 @@ function App() {
           <Route path="/videochat" element={<VideoChat />} />
           <Route path="/appointment" element={<AppointmentPage />} /> 
           <Route path="/patients" element={<PatientPage />} /> 
-          <Route path="/payment" element={<Meditation />} /> 
+          <Route path="/payment" element={<Payment />} /> 
           <Route path="/meditation" element={<Meditation />} /> 
           <Route path="/appointment/book" element={<BookingPage />} />
           <Route path="doctor/:doctorId" element={<DoctorViewPage />} />
