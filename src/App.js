@@ -18,11 +18,11 @@ function App() {
       <AuthProvider>
         <Routes>
           <Route path="/" element={
-            <PrivateRoute>
               <HomePage />
-            </PrivateRoute>
           } exact />
-          <Route path="/chat" element={<ChatPage />} />
+          <Route path="/chat" element={
+            <PrivateRoute><ChatPage />
+            </PrivateRoute>} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/videochat" element={<VideoChat />} />
