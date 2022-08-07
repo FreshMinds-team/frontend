@@ -22,7 +22,7 @@ const Footer = () => {
                     <div className="footer-address">
                       <span><i className="fas fa-map-marker-alt"></i></span>
                       <p>
-                        Tokha-06,<br />
+                        Tokha- 06,<br />
                         Kathmandu, Nepal
                       </p>
                     </div>
