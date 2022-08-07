@@ -35,53 +35,13 @@ const Header = () => {
 							<li class="has-submenu">
 								<a href="#">Doctors <i class="fas fa-chevron-down"></i></a>
 								<ul class="submenu">
-									<li><Link to="doctor-dashboard.html">Doctor Dashboard</Link></li>
-									<li><Link to="appointments.html">Appointments</Link></li>
-									<li><Link to="schedule-timings.html">Schedule Timing</Link></li>
-									<li><Link to="my-patients.html">Patients List</Link></li>
-									<li><Link to="patient-profile.html">Patients Profile</Link></li>
-									<li><Link to="chat-doctor.html">Chat</Link></li>
-									<li><Link to="invoices.html">Invoices</Link></li>
-									<li><Link to="doctor-profile-settings.html">Profile Settings</Link></li>
-									<li><Link to="reviews.html">Reviews</Link></li>
-									<li><Link to="doctor-register.html">Doctor Register</Link></li>
+									<li><Link to="/appointment">Appointments</Link></li>
+									<li><Link to="/patients">Patients List</Link></li>
 								</ul>
 							</li>	
-							<li class="has-submenu">
-								<a href="#">Patients <i class="fas fa-chevron-down"></i></a>
-								<ul class="submenu">
-									<li><Link to="search.html">Search Doctor</Link></li>
-									<li><Link to="doctor-profile.html">Doctor Profile</Link></li>
-									<li><Link to="booking.html">Booking</Link></li>
-									<li><Link to="checkout.html">Checkout</Link></li>
-									<li><Link to="booking-success.html">Booking Success</Link></li>
-									<li><Link to="patient-dashboard.html">Patient Dashboard</Link></li>
-									<li><Link to="favourites.html">Favourites</Link></li>
-									<li><Link to="chat.html">Chat</Link></li>
-									<li><Link to="profile-settings.html">Profile Settings</Link></li>
-									<li><Link to="change-password.html">Change Password</Link></li>
-								</ul>
-							</li>	
-							<li class="has-submenu">
-								<a href="#">Pages <i class="fas fa-chevron-down"></i></a>
-								<ul class="submenu">
-									<li><Link to="voice-call.html">Voice Call</Link></li>
-									<li><Link to="video-call.html">Video Call</Link></li>
-									<li><Link to="search.html">Search Doctors</Link></li>
-									<li><Link to="calendar.html">Calendar</Link></li>
-									<li><Link to="components.html">Components</Link></li>
-									<li class="has-submenu">
-										<Link to="invoices.html">Invoices</Link>
-										<ul class="submenu">
-											<li><Link to="invoices.html">Invoices</Link></li>
-											<li><Link to="invoice-view.html">Invoice View</Link></li>
-										</ul>
-									</li>
-									<li><Link to="blank-page.html">Starter Page</Link></li>
-									<li><Link to="login.html">Login</Link></li>
-									<li><Link to="register.html">Register</Link></li>
-									<li><Link to="forgot-password.html">Forgot Password</Link></li>
-								</ul>
+								
+	  <li>
+								<Link to="/chat">Chat</Link>
 							</li>
 							<li>
 								<Link to="/meditation">Meditate</Link>
