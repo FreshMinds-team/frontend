@@ -54,10 +54,10 @@ const AppointmentLists = () => {
                                 <img src="/assets/img/patients/patient.jpg" alt="User Image" />
                             </a>
                             <div className="profile-det-info">
-                                <h3><a href="patient-profile.html">{patients.first_name}</a></h3>
+                                <h3><a href="patient-profile.html">{appointment.patient.first_name}{appointment.patient.last_name}</a></h3>
                                 <div className="patient-details">
                                     <h5><i className="far fa-clock"></i> {appointment.appointment_date} {appointment.appointment_time}</h5>
-                                    <h5><i className="fas fa-envelope"></i> {patients.email}</h5>
+                                    <h5><i className="fas fa-envelope"></i> {appointment.patient.email}</h5>
                                 </div>
                             </div>
                         </div>
