@@ -58,7 +58,7 @@ const Header = () => {
 							</div>
 							<div class="header-contact-detail">
 								<p class="contact-header">Contact</p>
-								<p class="contact-info-header"> +1 315 369 5943</p>
+								<p class="contact-info-header"> +977-014965200</p>
 							</div>
 						</li>
 						<li class="nav-item">
