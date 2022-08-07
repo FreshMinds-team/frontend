@@ -5,7 +5,8 @@ const Footer = () => {
     <footer className="footer">
         <div className="footer-top">
           <div className="container-fluid">
-            <div className="row">
+            <div className="row justify-around">
+
               <div className="col-lg-3 col-md-6">
                 <div className="footer-widget footer-about">
                   <div className="footer-logo">

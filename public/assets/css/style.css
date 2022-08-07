@@ -2126,6 +2126,11 @@ html.menu-opened body {
     display: inline-block;
     margin-right: 15px;
 }
+.justify-around{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
 .policy-menu li:last-child {
 	margin-right: 0;
 }
