@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
 
 const baseURL = 'https://subidshrestha.pythonanywhere.com/api/expertise/'
-function Expertises() {
+function Expertises({id}) {
     const [expertises, setexpertises] = useState([]);
     useEffect(() => {
         const fetchexpertises = async () => {
-            let response = await fetch(baseURL, {
+            let response = await fetch(baseURL + id, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',

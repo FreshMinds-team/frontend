@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
 
 const baseURL = 'https://subidshrestha.pythonanywhere.com/api/experience/'
-const Experience = () => {
+const Experience = ({id}) => {
     const [experiences, setExperiences] = useState([]);
     useEffect(() => {
         const fetchExperiences = async () => {
-            let response = await fetch(baseURL, {
+            let response = await fetch(baseURL+id, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',

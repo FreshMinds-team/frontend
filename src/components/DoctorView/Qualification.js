@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
 
 const baseURL = 'https://subidshrestha.pythonanywhere.com/api/qualification/'
-const Qualification = () => {
+const Qualification = ({id}) => {
     const [qualifications, setQualifications] = useState([]);
     useEffect(() => {
         const fetchQualifications = async () => {
-            let response = await fetch(baseURL, {
+            let response = await fetch(baseURL+id, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
