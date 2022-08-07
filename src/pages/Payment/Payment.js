@@ -121,8 +121,8 @@ const Payment = () => {
 									<div class="booking-summary">
 										<div class="booking-item-wrap">
 											<ul class="booking-date">
-												<li>Date <span>16 Nov 2019</span></li>
-												<li>Time <span>10:00 AM</span></li>
+												<li>Date <span>7 Aug 2022</span></li>
+												<li>Time <span>08:02 AM</span></li>
 											</ul>
 											<ul class="booking-fee">
 												<li>Consulting Fee <span>$5</span></li>
