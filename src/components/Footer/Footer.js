@@ -82,17 +82,17 @@ const Footer = () => {
                     <div className="footer-address">
                       <span><i className="fas fa-map-marker-alt"></i></span>
                       <p>
-                        3556 Beech Street, San Francisco,<br />
-                        California, CA 94108
+                        Tokha-06,<br />
+                        Kathmandu, Nepal
                       </p>
                     </div>
                     <p>
                       <i className="fas fa-phone-alt"></i>
-                      +1 315 369 5943
+                      +977-01-4965277
                     </p>
                     <p className="mb-0">
                       <i className="fas fa-envelope"></i>
-                      doccure@example.com
+                      freshminds@example.com
                     </p>
                   </div>
                 </div>

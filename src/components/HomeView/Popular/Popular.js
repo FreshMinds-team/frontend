@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Carousel from 'react-elastic-carousel';
 import { Link } from 'react-router-dom';
 
-const baseURL = 'http://127.0.0.1:8000/api/doctor/'
+const baseURL = 'https://subidshrestha.pythonanywhere.com/api/doctor/'
 const Popular = () => {
 	const [doctors, setdoctors] = useState([]);
     useEffect(() => {

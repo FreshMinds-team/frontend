@@ -13,7 +13,7 @@ function DoctorView() {
     }, [])
 
     let doctorInfo = async () => {
-        let response = await fetch('http://127.0.0.1:8000/api/doctor/details/' + doctorId, {
+        let response = await fetch('https://subidshrestha.pythonanywhere.com/api/doctor/details/' + doctorId, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

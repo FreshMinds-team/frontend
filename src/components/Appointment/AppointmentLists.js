@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
-const baseURL = 'http://127.0.0.1:8000/api/'
+const baseURL = 'https://subidshrestha.pythonanywhere.com/api/'
 const AppointmentLists = () => {
     const [appointments, setappointments] = useState([]);
     const [patients, setpatients] = useState([]);
