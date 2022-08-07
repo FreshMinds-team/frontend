@@ -78,11 +78,11 @@ function DoctorView() {
                                             <p>{doctor.description}</p>
                                         </div>
 
-                                        <Qualification id='3' />
+                                        <Qualification id={doctor.id} />
 
-                                        <Experience id='3' />
+                                        <Experience id={doctor.id} />
 
-                                        <Expertise id='3' />
+                                        <Expertise id={doctor.id} />
 
                                     </div>
                                 </div>
