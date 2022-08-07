@@ -2005,7 +2005,7 @@ html.menu-opened body {
 -----------------------*/
 
 .footer {
-    background-color: #15558d;
+    background-color: #46a597;
 }
 .footer .footer-top {
 	padding: 40px 0;
@@ -2696,7 +2696,7 @@ html.menu-opened body {
 -----------------------*/
 
 .breadcrumb-bar {
-    background-color: #15558d;
+    background-color: #46a597;
     padding: 15px 0;
 }
 .breadcrumb-bar .breadcrumb-title {
@@ -6003,7 +6003,7 @@ a:hover{
 		z-index: 1060;
 		transform: translateX(-260px);
 		transition: all 0.4s;
-		background-color: #15558d;
+		background-color: #46a597;
 	}
 	.menu-header {
 		display: -webkit-box;
