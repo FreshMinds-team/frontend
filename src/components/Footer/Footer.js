@@ -14,68 +14,7 @@ const Footer = () => {
                 </div>
               </div>
 
-              <div className="col-lg-3 col-md-6">
-                <div className="footer-widget footer-menu">
-                  <h2 className="footer-title">For Patients</h2>
-                  <ul>
-                    <li>
-                      <a href="search.html"
-                        ><i className="fas fa-angle-double-right"></i> Search for
-                        Doctors</a>
-                    </li>
-                    <li>
-                      <a href="login.html"
-                        ><i className="fas fa-angle-double-right"></i> Login</a>
-                    </li>
-                    <li>
-                      <a href="register.html"
-                        ><i className="fas fa-angle-double-right"></i> Register</a>
-                    </li>
-                    <li>
-                      <a href="booking.html"
-                        ><i className="fas fa-angle-double-right"></i> Booking</a>
-                    </li>
-                    <li>
-                      <a href="patient-dashboard.html"
-                        ><i className="fas fa-angle-double-right"></i> Patient
-                        Dashboard</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-
-              <div className="col-lg-3 col-md-6">
-                <div className="footer-widget footer-menu">
-                  <h2 className="footer-title">For Doctors</h2>
-                  <ul>
-                    <li>
-                      <a href="appointments.html"
-                        ><i className="fas fa-angle-double-right"></i>
-                        Appointments</a
-                      >
-                    </li>
-                    <li>
-                      <a href="chat.html"
-                        ><i className="fas fa-angle-double-right"></i> Chat</a>
-                    </li>
-                    <li>
-                      <a href="login.html"
-                        ><i className="fas fa-angle-double-right"></i> Login</a>
-                    </li>
-                    <li>
-                      <a href="doctor-register.html"
-                        ><i className="fas fa-angle-double-right"></i> Register</a>
-                    </li>
-                    <li>
-                      <a href="doctor-dashboard.html"
-                        ><i className="fas fa-angle-double-right"></i> Doctor
-                        Dashboard</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-
-              <div className="col-lg-3 col-md-6">
+             <div className="col-lg-3 col-md-6">
                 <div className="footer-widget footer-contact">
                   <h2 className="footer-title">Contact Us</h2>
                   <div className="footer-contact-info">
