@@ -4217,6 +4217,7 @@ html.menu-opened body {
 a:hover{
 	cursor: pointer;
 }
+
 .chat-window .chat-scroll {
 	min-height: 60vh;
     max-height: calc(100vh - 224px);

@@ -125,6 +125,7 @@ const Chat = () => {
             }
         }
     }
+    
     return (
         <div className="content">
             <div className="container-fluid">

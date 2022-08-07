@@ -1,6 +1,29 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import Carousel from 'react-elastic-carousel';
+import { Link } from 'react-router-dom';
 
+const baseURL = 'http://127.0.0.1:8000/api/doctor/'
 const Popular = () => {
+	const [doctors, setdoctors] = useState([]);
+    useEffect(() => {
+        const fetchdoctors = async () => {
+            let response = await fetch(baseURL, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    // 'Authorization': 'Bearer ' + String(authTokens.access)
+                }
+            })
+            let data = await response.json()
+            if (response.status === 200) {
+                setdoctors(data)
+            }
+        };
+
+        fetchdoctors();
+    }, []);
+
+    if (!doctors) return null;
     return (
         <section className="section section-doctor">
 				<div className="container-fluid">
@@ -16,48 +39,27 @@ const Popular = () => {
 								<a href="javascript:;">Read More..</a>
 							</div>
 						</div>
-						<div className="col-lg-8">
-							<div className="doctor-slider slider">
-							
+						<div className="col-lg-8 custom-width">
+							<Carousel className="doctor-slider slider">
 								
-								<div className="profile-widget">
+							{
+                        doctors.map((doctor, index) => {
+                            return (
+								<div key={index} className="profile-widget">
 									<div className="doc-img">
-										<a href="doctor-profile.html">
+										<Link to={"/doctor/"+doctor.id}>
 											<img className="img-fluid" alt="User Image" src="assets/img/doctors/doctor-08.jpg" />
-										</a>
-										<a href="javascript:void(0)" className="fav-btn">
-											<i className="far fa-bookmark"></i>
-										</a>
+										</Link>
 									</div>
 									<div className="pro-content">
 										<h3 className="title">
-											<a href="doctor-profile.html">Paul Richard</a> 
+											<Link to={"/doctor/"+doctor.id}>{doctor.first_name} {doctor.last_name}</Link> 
 											<i className="fas fa-check-circle verified"></i>
 										</h3>
-										<p className="speciality">MBBS, MD - Dermatology , Venereology & Lepros</p>
-										<div className="rating">
-											<i className="fas fa-star filled"></i>
-											<i className="fas fa-star filled"></i>
-											<i className="fas fa-star filled"></i>
-											<i className="fas fa-star filled"></i>
-											<i className="fas fa-star"></i>
-											<span className="d-inline-block average-rating">(49)</span>
-										</div>
-										<ul className="available-info">
-											<li>
-												<i className="fas fa-map-marker-alt"></i> California, USA
-											</li>
-											<li>
-												<i className="far fa-clock"></i> Available on Fri, 22 Mar
-											</li>
-											<li>
-												<i className="far fa-money-bill-alt"></i> $100 - $400 
-												<i className="fas fa-info-circle" data-toggle="tooltip" title="Lorem Ipsum"></i>
-											</li>
-										</ul>
+										<p className="speciality">Psychiatrist</p>
 										<div className="row row-sm">
 											<div className="col-6">
-												<a href="doctor-profile.html" className="btn view-btn">View Profile</a>
+												<Link to={"/doctor/"+doctor.id} className="btn view-btn">View Profile</Link>
 											</div>
 											<div className="col-6">
 												<a href="booking.html" className="btn book-btn">Book Now</a>
@@ -65,9 +67,10 @@ const Popular = () => {
 										</div>
 									</div>
 								</div>
+							)} 
+						)}
 								
-								
-							</div>
+							</Carousel>
 						</div>
 				   </div>
 				</div>

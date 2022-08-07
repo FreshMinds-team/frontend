@@ -6,11 +6,11 @@ const HomeBanner = () => {
         <div className="container-fluid">
           <div className="banner-wrapper">
             <div className="banner-header text-center">
-              <h1>Search Doctor, Make an Appointment</h1>
+              <h1>Make an Appointment</h1>
               <br />
               <p>
                 Whether you’re looking to better understand your feelings or
-                experiencing anxiety, depression or high levels of stress,
+                experiencing anxiety, depression or high levels of stress, 
                 <strong>Fresh Minds</strong> is designed to help you feel
                 better.
               </p>

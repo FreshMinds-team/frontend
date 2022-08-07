@@ -1,58 +1,68 @@
 import React, { useContext, useState } from 'react'
+import { Link } from 'react-router-dom'
+import Footer from '../../components/Footer/Footer'
+import Header from '../../components/Header/Header'
 import AuthContext from '../../context/AuthContext'
 
 const LoginPage = () => {
   let { loginUser, registerUser } = useContext(AuthContext)
 
-  const [containerStyle, setContainerStyle] = useState('container')
+  const [toggle, settoggle] = useState(true)
 
   const toggleSignUp = () => {
-    setContainerStyle('container right-panel-active')
+    settoggle(false)
   };
 
   const toggleSignIn = () => {
-    setContainerStyle('container')
+    settoggle(true)
   };
 
   return (
     <div>
-      <div class={containerStyle} id="container">
-        <div class="form-container sign-up-container">
-          <form onSubmit={registerUser}>
-            <h4>Register</h4>
-            <input type="text" name="first_name" placeholder="Enter First Name" />
-            <input type="text" name="last_name" placeholder="Enter Last Name" />
-            <input type="text" name="username" placeholder="Enter Username" />
-            <input type="password" name="password" placeholder="Enter Password" />
-            {/* <input type="password" name="password2" placeholder="Enter Password Again" /> */}
-            <input type="email" name="email" placeholder="Enter Email" />
-            <button>Sign Up</button>
-          </form>
-        </div>
-        <div class="form-container sign-in-container">
-          <form onSubmit={loginUser}>
-            <h1>Sign in</h1>
-            <span>to use your account</span>
-            <input type="text" name="username" placeholder="Enter Username" />
-            <input type="password" name="password" placeholder="Enter Password" />
-            <input type="submit" />
-          </form>
-        </div>
-        <div class="overlay-container">
-          <div class="overlay">
-            <div class="overlay-panel overlay-left">
-              <h1>Welcome Back!</h1>
-              <p>To keep connected with us please login with your personal info</p>
-              <button class="ghost" onClick={toggleSignIn} id="signIn">Sign In</button>
-            </div>
-            <div class="overlay-panel overlay-right">
-              <h1>Hello, Friend!</h1>
-              <p>Enter your personal details and start journey with us</p>
-              <button class="ghost" onClick={toggleSignUp} id="signUp">Sign Up</button>
+      <Header />
+      <div className="content">
+        <div className="container-fluid">
+
+          <div className="row">
+            <div className="col-md-8 offset-md-2">
+
+              <div className="account-content">
+                <div className="row align-items-center justify-content-center">
+                  <div className="col-md-7 col-lg-6 login-left">
+                    <img src="/assets/img/login-banner.png" className="img-fluid" alt="Doccure Login" />
+                  </div>
+                  <div className="col-md-12 col-lg-6 login-right">
+                    <div className="login-header">
+                      <h3>Login <span>Fresh Minds</span></h3>
+                    </div>
+                    <form onsubmit={loginUser}>
+                      <div className="form-group form-focus">
+                        <input type="text" name="username" className="form-control floating" />
+                        <label className="focus-label">Username</label>
+                      </div>
+                      <div className="form-group form-focus">
+                        <input type="password" name="password" className="form-control floating" />
+                        <label className="focus-label">Password</label>
+                      </div>
+
+                      <button className="btn btn-primary btn-block btn-lg login-btn" type="submit">Login</button>
+                      <div className="login-or">
+                        <span className="span-or">or</span>
+                      </div>
+
+                      <div className="text-center dont-have">Don’t have an account? <Link to='/register'>Register</Link></div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
             </div>
           </div>
+
         </div>
+
       </div>
+      <Footer />
     </div>
   )
 
