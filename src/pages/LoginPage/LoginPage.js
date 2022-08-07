@@ -35,7 +35,7 @@ const LoginPage = () => {
                     <div className="login-header">
                       <h3>Login <span>Fresh Minds</span></h3>
                     </div>
-                    <form onsubmit={loginUser}>
+                    <form onSubmit={loginUser}>
                       <div className="form-group form-focus">
                         <input type="text" name="username" className="form-control floating" />
                         <label className="focus-label">Username</label>
