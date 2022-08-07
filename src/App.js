@@ -28,6 +28,7 @@ function App() {
           <Route path="/videochat" element={<VideoChat />} />
           <Route path="/appointment" element={<AppointmentPage />} /> 
           <Route path="/patients" element={<PatientPage />} /> 
+          <Route path="/payment" element={<Meditation />} /> 
           <Route path="/meditation" element={<Meditation />} /> 
           <Route path="/appointment/book" element={<BookingPage />} />
           <Route path="doctor/:doctorId" element={<DoctorViewPage />} />

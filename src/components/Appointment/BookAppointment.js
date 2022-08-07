@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Calendar from 'react-calendar';
+import { Link } from 'react-router-dom';
 
 const BookAppointment = () => {
     const [date, setDate] = useState(new Date())
@@ -26,7 +27,7 @@ const BookAppointment = () => {
                     </div>
 
                     <div className="submit-section proceed-btn text-right">
-                        <a href="checkout.html" className="btn btn-primary submit-btn">Proceed to Pay</a>
+                        <Link to="/payment" state={{price : "$20"}} className="btn btn-primary submit-btn">Proceed to Pay</Link>
                     </div>
                 </div>
             </div>
