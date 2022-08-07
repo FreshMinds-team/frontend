@@ -37,7 +37,7 @@ const Header = () => {
 								<ul class="submenu">
 									<li><Link to="/appointment">Appointments</Link></li>
 									<li><Link to="/patients">Patients List</Link></li>
-									<li><Link to="/appointment/add">Request an appointment.</Link></li>
+									<li><Link to="/appointment/book">Request an appointment.</Link></li>
 								</ul>
 							</li>	
 								
