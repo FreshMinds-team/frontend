@@ -13,7 +13,7 @@ function DoctorView() {
     }, [])
 
     let doctorInfo = async () => {
-        let response = await fetch('https://subidshrestha.pythonanywhere.com/api/doctor/details/' + doctorId, {
+        let response = await fetch('http://127.0.0.1:8000/api/doctor/details/' + doctorId, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -29,52 +29,52 @@ function DoctorView() {
     }
     if (!doctor) return null;
     return (
-        <div class="content">
-            <div class="container">
+        <div className="content">
+            <div className="container">
 
-                <div class="card">
-                    <div class="card-body">
-                        <div class="doctor-widget">
-                            <div class="doc-info-left">
-                                <div class="doctor-img">
-                                    <img src="/assets/img/doctors/doctor-thumb-02.jpg" class="img-fluid" alt="User Image" />
+                <div className="card">
+                    <div className="card-body">
+                        <div className="doctor-widget">
+                            <div className="doc-info-left">
+                                <div className="doctor-img">
+                                    <img src="/assets/img/doctors/doctor-thumb-02.jpg" className="img-fluid" alt="User Image" />
                                 </div>
-                                <div class="doc-info-cont">
-                                    <h4 class="doc-name">{doctor.first_name} {doctor.last_name}</h4>
-                                    <p class="doc-department"><img src="/assets/img/specialities/specialities-05.png" class="img-fluid" alt="Speciality" />Psychiatrist</p>
+                                <div className="doc-info-cont">
+                                    <h4 className="doc-name">{doctor.first_name} {doctor.last_name}</h4>
+                                    <p className="doc-department"><img src="/assets/img/specialities/specialities-05.png" className="img-fluid" alt="Speciality" />Psychiatrist</p>
 
                                 </div>
                             </div>
-                            <div class="doc-info-right">
-                                <div class="clini-infos">
+                            <div className="doc-info-right">
+                                <div className="clini-infos">
                                 </div>
-                                <div class="clinic-booking">
-                                    <a class="apt-btn" href="booking.html">Book Appointment</a>
+                                <div className="clinic-booking">
+                                    <a className="apt-btn" href="booking.html">Book Appointment</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="card">
-                    <div class="card-body pt-0">
+                <div className="card">
+                    <div className="card-body pt-0">
 
-                        <nav class="user-tabs mb-4">
-                            <ul class="nav nav-tabs nav-tabs-bottom nav-justified">
-                                <li class="nav-item">
-                                    <a class="nav-link active" data-toggle="tab">Overview</a>
+                        <nav className="user-tabs mb-4">
+                            <ul className="nav nav-tabs nav-tabs-bottom nav-justified">
+                                <li className="nav-item">
+                                    <a className="nav-link active" data-toggle="tab">Overview</a>
                                 </li>
                             </ul>
                         </nav>
 
-                        <div class="tab-content pt-0">
+                        <div className="tab-content pt-0">
 
-                            <div role="tabpanel" id="doc_overview" class="tab-pane fade show active">
-                                <div class="row">
-                                    <div class="col-md-12 col-lg-9">
+                            <div role="tabpanel" id="doc_overview" className="tab-pane fade show active">
+                                <div className="row">
+                                    <div className="col-md-12 col-lg-9">
 
-                                        <div class="widget about-widget">
-                                            <h4 class="widget-title">About Me</h4>
+                                        <div className="widget about-widget">
+                                            <h4 className="widget-title">About Me</h4>
                                             <p>{doctor.description}</p>
                                         </div>
 

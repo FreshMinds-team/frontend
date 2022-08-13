@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-const baseURL = 'https://subidshrestha.pythonanywhere.com/api/qualification/'
+const baseURL = 'http://127.0.0.1:8000/api/qualification/'
 const Qualification = ({id}) => {
     const [qualifications, setQualifications] = useState([]);
     useEffect(() => {
@@ -23,22 +23,22 @@ const Qualification = ({id}) => {
 
     if (!qualifications) return null;
     return (
-        <div class="widget education-widget">
-            <h4 class="widget-title">Education</h4>
-            <div class="experience-box">
-                <ul class="experience-list">
+        <div className="widget education-widget">
+            <h4 className="widget-title">Education</h4>
+            <div className="experience-box">
+                <ul className="experience-list">
                     {
                         qualifications.map((qualification, index) => {
                             return (
                                 <li key={index}>
-                                    <div class="experience-user">
-                                        <div class="before-circle"></div>
+                                    <div className="experience-user">
+                                        <div className="before-circle"></div>
                                     </div>
-                                    <div class="experience-content">
-                                        <div class="timeline-content">
-                                            <a class="name">{qualification.title}</a>
+                                    <div className="experience-content">
+                                        <div className="timeline-content">
+                                            <a className="name">{qualification.title}</a>
                                             <div>{qualification.institution}</div>
-                                            <span class="time">{qualification.date}</span>
+                                            <span className="time">{qualification.date}</span>
                                         </div>
                                     </div>
                                 </li>

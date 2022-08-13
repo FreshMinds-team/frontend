@@ -4223,6 +4223,11 @@ a:hover{
 	cursor: pointer;
 }
 
+.margin-temp{
+	margin-left:7% ;
+	margin-right:7% ;
+}
+
 .chat-window .chat-scroll {
 	min-height: 60vh;
     max-height: calc(100vh - 224px);

@@ -34,25 +34,7 @@ const Footer = () => {
                       <i className="fas fa-envelope"></i>
                       freshminds@example.com
                     </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="footer-bottom">
-          <div className="container-fluid">
-            <div className="copyright">
-              <div className="row">
-                <div className="col-md-6 col-lg-6">
-                  <div className="copyright-text">
-                    <p className="mb-0">
-                      <a href="templateshub.net">Templates Hub</a>
-                    </p>
-                  </div>
-                </div>
-                <div className="col-md-6 col-lg-6">
-                  <div className="copyright-menu">
+                    <br />
                     <ul className="policy-menu">
                       <li>
                         <a href="term-condition.html">Terms and Conditions</a>

@@ -19,19 +19,39 @@ function App() {
       <AuthProvider>
         <Routes>
           <Route path="/" element={
-              <HomePage />
+            <HomePage />
           } exact />
+
           <Route path="/chat" element={
-            <PrivateRoute><ChatPage />
+            <PrivateRoute>
+              <ChatPage />
             </PrivateRoute>} />
+
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/videochat" element={<VideoChat />} />
-          <Route path="/appointment" element={<AppointmentPage />} /> 
-          <Route path="/patients" element={<PatientPage />} /> 
-          <Route path="/payment" element={<Payment />} /> 
-          <Route path="/meditation" element={<Meditation />} /> 
-          <Route path="/appointment/book" element={<BookingPage />} />
+
+          <Route path="/videochat" element={<PrivateRoute>
+              <VideoChat />
+            </PrivateRoute>} />
+
+          <Route path="/appointment" element={<PrivateRoute>
+              <AppointmentPage />
+            </PrivateRoute>} />
+
+          <Route path="/patients" element={<PrivateRoute>
+              <PatientPage />
+            </PrivateRoute>} />
+
+          <Route path="/payment" element={<PrivateRoute>
+              <Payment />
+            </PrivateRoute>} />
+
+          <Route path="/meditation" element={<Meditation />} />
+
+          <Route path="/appointment/book" element={<PrivateRoute>
+              <BookingPage />
+            </PrivateRoute>} />
+            
           <Route path="doctor/:doctorId" element={<DoctorViewPage />} />
         </Routes>
       </AuthProvider>

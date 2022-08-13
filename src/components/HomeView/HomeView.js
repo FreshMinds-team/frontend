@@ -9,7 +9,7 @@ const HomeView = () => {
     <div>
       <HomeBanner />
       <Clinic />
-      <Popular />
+      <Popular/>
       <Features />
     </div>
   )

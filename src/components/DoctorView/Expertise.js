@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-const baseURL = 'https://subidshrestha.pythonanywhere.com/api/expertise/'
+const baseURL = 'http://127.0.0.1:8000/api/expertise/'
 function Expertises({id}) {
     const [expertises, setexpertises] = useState([]);
     useEffect(() => {
@@ -23,9 +23,9 @@ function Expertises({id}) {
 
     if (!expertises) return null;
     return (
-        <div class="service-list">
+        <div className="service-list">
             <h4>Specializations</h4>
-            <ul class="clearfix">
+            <ul className="clearfix">
                 {
                     expertises.map((expertise, index) => {
                         return (

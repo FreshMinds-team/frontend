@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { Link } from 'react-router-dom'
+import AuthContext from '../../context/AuthContext'
 
-const baseURL = 'https://subidshrestha.pythonanywhere.com/api/'
+const baseURL = 'http://127.0.0.1:8000/api/'
 const AppointmentLists = () => {
+    let { authTokens} = useContext(AuthContext)
     const [appointments, setappointments] = useState([]);
     const [patients, setpatients] = useState([]);
 
@@ -12,34 +14,32 @@ const AppointmentLists = () => {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
-                    // 'Authorization': 'Bearer ' + String(authTokens.access)
+                    'Authorization': 'Bearer ' + String(authTokens.access)
                 }
             })
             let data = await response.json()
             if (response.status === 200) {
                 setappointments(data)
             }
-        };   
-        
-        
-        
+        };         
+                
         fetchappointments();
-        fetchpatients();
+        // fetchpatients();
     }, []);
 
-    const fetchpatients = async (id) => {
-        let response = await fetch(baseURL + 'patient/details' + id, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                // 'Authorization': 'Bearer ' + String(authTokens.access)
-            }
-        })
-        let data = await response.json()
-        if (response.status === 200) {
-            setpatients(data)
-        }
-    };
+    // const fetchpatients = async (id) => {
+    //     let response = await fetch(baseURL + 'patient/details/' + id?id:0, {
+    //         method: 'GET',
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //             // 'Authorization': 'Bearer ' + String(authTokens.access)
+    //         }
+    //     })
+    //     let data = await response.json()
+    //     if (response.status === 200) {
+    //         setpatients(data)
+    //     }
+    // };
 
     if (!appointments) return null;
     return (

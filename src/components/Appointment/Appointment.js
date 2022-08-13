@@ -5,36 +5,36 @@ import AppointmentSidebar from './AppointmentSidebar'
 
 const Appointment = () => {
     return (
-        <div class="content">
-            <div class="container-fluid">
+        <div className="content">
+            <div className="container-fluid">
 
-                <div class="row">
-                    <div class="col-md-5 col-lg-4 col-xl-3 theiaStickySidebar">
+                <div className="row">
+                    <div className="col-md-5 col-lg-4 col-xl-3 theiaStickySidebar">
 
-                        <div class="profile-sidebar">
-                            <div class="widget-profile pro-widget-content">
-                                <div class="profile-info-widget">
-                                    <a href="#" class="booking-doc-img">
+                        <div className="profile-sidebar">
+                            <div className="widget-profile pro-widget-content">
+                                <div className="profile-info-widget">
+                                    <a href="#" className="booking-doc-img">
                                         <img src="/assets/img/doctors/doctor-thumb-02.jpg" alt="User Image" />
                                     </a>
-                                    <div class="profile-det-info">
+                                    <div className="profile-det-info">
                                         <h3>Dr. Darren Elder</h3>
 
-                                        <div class="patient-details">
-                                            <h5 class="mb-0">Psychiatrist</h5>
+                                        <div className="patient-details">
+                                            <h5 className="mb-0">Psychiatrist</h5>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="dashboard-widget">
+                            <div className="dashboard-widget">
                                 <AppointmentSidebar />
                             </div>
                         </div>
 
                     </div>
 
-                    <div class="col-md-7 col-lg-8 col-xl-9">
-                        <div class="appointments">
+                    <div className="col-md-7 col-lg-8 col-xl-9">
+                        <div className="appointments">
 
                             <AppointmentLists />
 

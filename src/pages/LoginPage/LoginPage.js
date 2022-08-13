@@ -37,8 +37,8 @@ const LoginPage = () => {
                     </div>
                     <form onSubmit={loginUser}>
                       <div className="form-group form-focus">
-                        <input type="text" name="username" className="form-control floating" />
-                        <label className="focus-label">Username</label>
+                        <input type="email" name="email" className="form-control floating" />
+                        <label className="focus-label">Email</label>
                       </div>
                       <div className="form-group form-focus">
                         <input type="password" name="password" className="form-control floating" />

@@ -1,16 +1,15 @@
 import React, { useState, useEffect, useContext } from 'react'
 import AuthContext from '../../context/AuthContext'
-import Header from '../../components/Header/Header'
-import ScrollToBottom from "react-scroll-to-bottom";
-import io from "socket.io-client";
-import Moment from 'react-moment';
-import { Link } from 'react-router-dom';
+import ScrollToBottom from "react-scroll-to-bottom"
+import io from "socket.io-client"
+import Moment from 'react-moment'
+import { Link } from 'react-router-dom'
 
 const socket = io.connect("https://socket-fresh-minds.herokuapp.com/");
 const Chat = () => {
     let { authTokens, logoutUser, user } = useContext(AuthContext)
     let [friends, setFriends] = useState([])
-    const [username, setUsername] = useState(() => localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null);
+    const [authUser, setAuthUser] = useState(() => localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null);
     const [room, setRoom] = useState();
     const [me, setMe] = useState('');
     const [currentMessage, setCurrentMessage] = useState("");
@@ -25,16 +24,17 @@ const Chat = () => {
 
     useEffect(() => {
         if (currentFriend !== null) {
-            const users = [user.username, currentFriend].sort();
+            const users = [user.username, currentFriend.username].sort();
             setRoom(users[0] + '-' + users[1])
         }
     }, [friends])
 
     useEffect(() => {
         if (currentFriend !== null) {
-            const users = [user.username, currentFriend].sort();
+            const users = [user.username, currentFriend.username].sort();
             setRoom(users[0] + '-' + users[1])
         }
+        console.log(currentFriend)
     }, [currentFriend])
 
     useEffect(() => {
@@ -62,7 +62,7 @@ const Chat = () => {
         if (currentMessage !== "") {
             const messageData = {
                 user: user.user_id,
-                receiver: currentFriend,
+                receiver: currentFriend.username,
                 message: currentMessage,
                 room: room,
                 author: user.username,
@@ -71,7 +71,7 @@ const Chat = () => {
             await socket.emit("send_message", messageData);
             setMessageList((list) => [...list, messageData]);
 
-            let response = await fetch('https://shishirr.pythonanywhere.com/api/chats/add', {
+            let response = await fetch('http://127.0.0.1:8000/api/chats/add', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -88,7 +88,7 @@ const Chat = () => {
         }
     };
     let getFriends = async () => {
-        let response = await fetch('https://shishirr.pythonanywhere.com/api/friends/', {
+        let response = await fetch('http://127.0.0.1:8000/api/patient/', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -99,9 +99,9 @@ const Chat = () => {
         if (response.status === 200) {
             setFriends(data)
             if (data.length >= 1) {
-                setCurrentFriend(data[0].username)
+                setCurrentFriend(data[0])
             } else {
-                setCurrentFriend(user.username)
+                setCurrentFriend(user)
             }
         } else if (response.statusText === 'Unauthorized') {
             logoutUser()
@@ -110,7 +110,7 @@ const Chat = () => {
 
     let getChats = async () => {
         if (room !== undefined) {
-            let response = await fetch('https://shishirr.pythonanywhere.com/api/chats/' + room, {
+            let response = await fetch('http://127.0.0.1:8000/api/chat/' + room, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -143,17 +143,17 @@ const Chat = () => {
                                                 friends.map((friend) => {
                                                     return (
                                                         <a className="media read-chat" key={friend.id} onClick={() => {
-                                                            setCurrentFriend(friend.username)
+                                                            setCurrentFriend(friend)
                                                             setToggleChat(false)
                                                         }} >
                                                             <div className="media-img-wrap">
-                                                                <div className="avatar avatar-away">
+                                                                <div className={friend.is_active?"avatar avatar-online":"avatar avatar-offline"}>
                                                                     <img src="assets/img/doctors/doctor-thumb-01.jpg" alt="User Image" className="avatar-img rounded-circle" />
                                                                 </div>
                                                             </div>
                                                             <div className="media-body">
                                                                 <div>
-                                                                    <div className="user-name">{user.username === friend.username ? 'Me' : friend.username}</div>
+                                                                    <div className="user-name">{user.username === friend.username ? 'Me' : friend.first_name + ' ' + friend.last_name}</div>
                                                                     <div className="user-last-chat">I'll call you later </div>
                                                                 </div>
                                                                 <div>
@@ -181,13 +181,13 @@ const Chat = () => {
                                                 </a>
                                             </div>
                                             <div className="media-img-wrap">
-                                                <div className="avatar avatar-online">
+                                                <div className={currentFriend.is_active?"avatar avatar-online":"avatar avatar-offline"}>
                                                     <img src="assets/img/doctors/doctor-thumb-02.jpg" alt="User Image" className="avatar-img rounded-circle" />
                                                 </div>
                                             </div>
                                             <div className="media-body">
-                                                <div className="user-name">{user.username === currentFriend ? 'Me' : currentFriend}</div>
-                                                <div className="user-status">online</div>
+                                                <div className="user-name">{user.username === currentFriend.username ? 'Me' : (<span>{currentFriend.first_name} {currentFriend.last_name}</span>)}</div>
+                                                <div className="user-status">{currentFriend.is_active?'Online':'Offline'}</div>
                                             </div>
                                         </div>
                                         <div className="chat-options">

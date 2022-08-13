@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Carousel from 'react-elastic-carousel';
 import { Link } from 'react-router-dom';
 
-const baseURL = 'https://subidshrestha.pythonanywhere.com/api/doctor/'
+const baseURL = 'http://127.0.0.1:8000/api/doctor/'
 const Popular = () => {
 	const [doctors, setdoctors] = useState([]);
     useEffect(() => {
@@ -25,7 +25,7 @@ const Popular = () => {
 
     if (!doctors) return null;
     return (
-        <section className="section section-doctor">
+        <section className="section section-doctor margin-temp">
 				<div className="container-fluid">
 				   <div className="row">
 						<div className="col-lg-4">
@@ -62,7 +62,7 @@ const Popular = () => {
 												<Link to={"/doctor/"+doctor.id} className="btn view-btn">View Profile</Link>
 											</div>
 											<div className="col-6">
-												<a href="booking.html" className="btn book-btn">Book Now</a>
+												<Link to="/appointment/book" className="btn book-btn">Request an Appointment</Link>
 											</div>
 										</div>
 									</div>
