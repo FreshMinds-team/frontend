@@ -29,7 +29,11 @@ export const CheckoutForm = ({ props }) => {
                 );
                 if (response.data.success) {
                     bookAppointment()
-                    navigate('/')
+                    navigate('/success', {
+                        state: {
+                            props:props
+                        }
+                    })
                 }
             } catch (error) {
                 console.log("CheckoutForm.js 28 | ", error);
@@ -38,7 +42,6 @@ export const CheckoutForm = ({ props }) => {
     };
 
     const bookAppointment = async (event) => {
-        console.log(user.user_id)
         const appointmentData = {
             patient: user.user_id,
             description: props.description,

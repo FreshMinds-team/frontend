@@ -48,7 +48,7 @@ const Popular = () => {
 								<div key={index} className="profile-widget">
 									<div className="doc-img">
 										<Link to={"/doctor/"+doctor.id}>
-											<img className="img-fluid" alt="User Image" src="assets/img/doctors/doctor-08.jpg" />
+											<img className="img-fluid fixed-size" alt="User Image" src={"http://127.0.0.1:8000/"+doctor.profilepic} />
 										</Link>
 									</div>
 									<div className="pro-content">
@@ -57,11 +57,11 @@ const Popular = () => {
 											<i className="fas fa-check-circle verified"></i>
 										</h3>
 										<p className="speciality">Psychiatrist</p>
-										<div className="row row-sm">
-											<div className="col-6">
+										<div className="row row-sm flex-gara">
+											<div >
 												<Link to={"/doctor/"+doctor.id} className="btn view-btn">View Profile</Link>
 											</div>
-											<div className="col-6">
+											<div >
 												<Link to="/appointment/book" className="btn book-btn">Request an Appointment</Link>
 											</div>
 										</div>

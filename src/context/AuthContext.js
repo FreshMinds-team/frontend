@@ -1,6 +1,7 @@
 import { createContext, useState, useEffect } from 'react'
 import jwt_decode from "jwt-decode";
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const AuthContext = createContext()
 
@@ -35,36 +36,66 @@ export const AuthProvider = ({ children }) => {
         }
     }
 
+    useEffect(()=>{
+        setActive()
+    },[user])
+
     let registerUser = async (e) => {
         e.preventDefault()
-        let response = await fetch('http://127.0.0.1:8000/api/user/add', {
+        let form_data = new FormData();
+        form_data.append('first_name', e.target.first_name.value);
+        form_data.append('last_name', e.target.last_name.value);
+        form_data.append('username', e.target.username.value);
+        form_data.append('email', e.target.email.value);
+        form_data.append('password', e.target.password.value);
+        form_data.append('phone', e.target.phone.value);
+        form_data.append('address', e.target.address.value);
+        form_data.append('dob', e.target.dob.value);
+        form_data.append('profilepic', e.target.profilepic.files[0]);
+        form_data.append('gender', e.target.gender.value);
+        form_data.append('type', 'Patient');
+
+        axios.post('http://127.0.0.1:8000/api/patient/add/', form_data, {
+            headers: {
+                'content-type': 'multipart/form-data'
+            }
+        })
+            .then(res => {
+                // console.log(res.data);
+                navigate('/login')
+            })
+            .catch(err => console.log(err))
+
+    }
+
+    const setActive = async()=>{
+        console.log(user.id)
+        let response = await fetch('http://127.0.0.1:8000/api/user/partial/' + user.id, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + String(authTokens.access)
             },
-            body: JSON.stringify({
-                'username': e.target.username.value,
-                'password': e.target.password.value,
-                'email': e.target.email.value,
-                'first_name': e.target.first_name.value,
-                'last_name': e.target.last_name.value,
-            })
+            body: JSON.stringify({ 'active': true })
         })
-        let data = await response.json()
-
-        if (response.status === 200) {
-            navigate('/login')
-        } else {
-            alert('Something went wrong!')
-        }
     }
 
 
-    let logoutUser = () => {
-        setAuthTokens(null)
-        setUser(null)
-        localStorage.removeItem('authTokens')
-        navigate('/login')
+    let logoutUser = async () => {
+        let response = await fetch('http://127.0.0.1:8000/api/user/partial/' + user.id, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + String(authTokens.access)
+            },
+            body: JSON.stringify({ 'active': false })
+        })
+        if (response.status === 200) {
+            setAuthTokens(null)
+            setUser(null)
+            localStorage.removeItem('authTokens')
+            navigate('/login')
+        }
     }
 
 

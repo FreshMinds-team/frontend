@@ -64,6 +64,10 @@ Version      : 1.0
 	url(../fonts/MaterialIcons-Regular.woff) format('woff'),
 	url(../fonts/MaterialIcons-Regular.ttf) format('truetype');
 }
+.flex-gara{
+	display: flex;
+	flex-direction: row;
+}
 .material-icons {
 	font-family: 'Material Icons';
 	font-weight: normal;
@@ -114,6 +118,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 .h6, h6 {
     font-size: 0.875rem;
+}
+
+.footer-logo{
+	height: 60px;
+	width: auto;
 }
 
 a {
@@ -1524,6 +1533,7 @@ button.bg-danger:hover {
 .slick-next.slick-disabled:before {
     opacity: .25;
 }
+
 .slick-prev:before,
 .slick-next:before {
     font-family: 'slick';
@@ -2497,6 +2507,9 @@ html.menu-opened body {
     overflow: hidden;
     z-index: 1;
     border-radius: 4px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
 }
 .doc-img img {
     border-radius: 4px;
@@ -5425,6 +5438,10 @@ a:hover{
 	text-align: center;
 	position: relative;
 }
+.fixed-size{
+	height: 500px;
+	width: auto !important;
+}
 .call-icons .call-items {
 	border-radius: 5px;
 	padding: 0;
@@ -5788,6 +5805,10 @@ a:hover{
 		display: block;
 		position: relative;
 	}
+	.fixed-size{
+	height: 400px;
+	width: auto !important;
+}
 	.main-nav > li > a {
 		line-height: 85px;
 		padding: 0 !important;
@@ -5919,6 +5940,11 @@ a:hover{
 		padding-left: 20px;
 		padding-right: 20px;
 	}
+	.fixed-size{
+		height: 300px;
+		width: auto !important;
+	}
+	
 	.chat-cont-left .chat-users-list a.media .media-body > div:first-child .user-name, 
 	.chat-cont-left .chat-users-list a.media .media-body > div:first-child .user-last-chat {
 		max-width: 150px;
@@ -5969,6 +5995,10 @@ a:hover{
 	}
 	.main-nav li + li {
 		margin-left: 0;
+	}
+	.fixed-size{
+		height: 230px;
+		width: auto !important;
 	}
 	.main-nav > li > a {
 		line-height: 1.5;
@@ -6672,6 +6702,10 @@ a:hover{
 	.section-search {
 		min-height: 410px;
 		padding: 30px 15px;
+	}
+	.fixed-size{
+		height: 150px;
+		width: auto !important;
 	}
 	.specialities-slider .slick-slide {
 		margin-right: 10px;

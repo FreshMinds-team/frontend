@@ -4,6 +4,11 @@ import AuthContext from '../../context/AuthContext'
 
 const Header = () => {
 	let { logoutUser, user } = useContext(AuthContext)
+	if(user){
+		if(user.type === 'Doctor'){
+            logoutUser()
+        }
+	}
 	return (
 		<header className="header">
 			<nav className="navbar navbar-expand-lg header-nav">
@@ -47,6 +52,7 @@ const Header = () => {
 							<a>Features <i className="fas fa-chevron-down"></i></a>
 							<ul className="submenu">
 								<li><Link to="/meditation">Meditation</Link></li>
+								<li><Link to="/news">News</Link></li>
 							</ul>
 						</li>
 					</ul>
@@ -62,7 +68,8 @@ const Header = () => {
 						</div>
 					</li>
 					<li className="nav-item">
-						{!user?(
+						{
+						!user?(
 							<Link className="nav-link header-login" to="/login">login / Signup </Link>
 						):(
 							<a className="nav-link header-login" onClick={logoutUser}>Logout</a>

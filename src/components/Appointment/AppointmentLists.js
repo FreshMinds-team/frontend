@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext } from 'react'
-import { Link } from 'react-router-dom'
 import AuthContext from '../../context/AuthContext'
 
 const baseURL = 'http://127.0.0.1:8000/api/'
@@ -24,22 +23,7 @@ const AppointmentLists = () => {
         };         
                 
         fetchappointments();
-        // fetchpatients();
     }, []);
-
-    // const fetchpatients = async (id) => {
-    //     let response = await fetch(baseURL + 'patient/details/' + id?id:0, {
-    //         method: 'GET',
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //             // 'Authorization': 'Bearer ' + String(authTokens.access)
-    //         }
-    //     })
-    //     let data = await response.json()
-    //     if (response.status === 200) {
-    //         setpatients(data)
-    //     }
-    // };
 
     if (!appointments) return null;
     return (

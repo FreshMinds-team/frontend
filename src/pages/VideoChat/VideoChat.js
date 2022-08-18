@@ -4,6 +4,8 @@ import io from "socket.io-client";
 import Peer from "simple-peer";
 import { useLocation, useNavigate } from 'react-router-dom';
 import VideoPlayer from '../../components/VideoPlayer/VideoPlayer';
+import Header from '../../components/Header/Header';
+import Footer from '../../components/Footer/Footer';
 
 const videoConstraints = {
   height: window.innerHeight / 2,
@@ -97,6 +99,8 @@ const VideoChat = () => {
     return peer;
   }
   return (
+    <>
+    <Header />
     <div className="content">
       <div className="container-fluid">
         <div className="call-wrapper">
@@ -159,6 +163,8 @@ const VideoChat = () => {
         </div>
       </div>
     </div>
+    <Footer />
+    </>
   );
 };
 

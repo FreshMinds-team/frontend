@@ -5,6 +5,7 @@ import io from "socket.io-client"
 import Moment from 'react-moment'
 import { Link } from 'react-router-dom'
 
+const url = 'http://127.0.0.1:8000/'
 const socket = io.connect("https://socket-fresh-minds.herokuapp.com/");
 const Chat = () => {
     let { authTokens, logoutUser, user } = useContext(AuthContext)
@@ -88,7 +89,7 @@ const Chat = () => {
         }
     };
     let getFriends = async () => {
-        let response = await fetch('http://127.0.0.1:8000/api/patient/', {
+        let response = await fetch('http://127.0.0.1:8000/api/doctor/', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -125,7 +126,7 @@ const Chat = () => {
             }
         }
     }
-    
+
     return (
         <div className="content">
             <div className="container-fluid">
@@ -147,17 +148,18 @@ const Chat = () => {
                                                             setToggleChat(false)
                                                         }} >
                                                             <div className="media-img-wrap">
-                                                                <div className={friend.is_active?"avatar avatar-online":"avatar avatar-offline"}>
-                                                                    <img src="assets/img/doctors/doctor-thumb-01.jpg" alt="User Image" className="avatar-img rounded-circle" />
+                                                                <div className={friend.active ? "avatar avatar-online" : "avatar avatar-offline"}>
+                                                                    <img src={url + friend.profilepic} alt="User Image" className="avatar-img rounded-circle" />
                                                                 </div>
                                                             </div>
+
                                                             <div className="media-body">
                                                                 <div>
                                                                     <div className="user-name">{user.username === friend.username ? 'Me' : friend.first_name + ' ' + friend.last_name}</div>
-                                                                    <div className="user-last-chat">I'll call you later </div>
+                                                                    <div className="user-last-chat">Say Hello!!! </div>
                                                                 </div>
                                                                 <div>
-                                                                    <div className="last-chat-time block">8:01 PM</div>
+                                                                    <div className="last-chat-time block"></div>
                                                                 </div>
                                                             </div>
                                                         </a>
@@ -181,17 +183,17 @@ const Chat = () => {
                                                 </a>
                                             </div>
                                             <div className="media-img-wrap">
-                                                <div className={currentFriend.is_active?"avatar avatar-online":"avatar avatar-offline"}>
-                                                    <img src="assets/img/doctors/doctor-thumb-02.jpg" alt="User Image" className="avatar-img rounded-circle" />
+                                                <div className={currentFriend.active ? "avatar avatar-online" : "avatar avatar-offline"}>
+                                                    <img src={url + currentFriend.profilepic} alt="User Image" className="avatar-img rounded-circle" />
                                                 </div>
                                             </div>
                                             <div className="media-body">
                                                 <div className="user-name">{user.username === currentFriend.username ? 'Me' : (<span>{currentFriend.first_name} {currentFriend.last_name}</span>)}</div>
-                                                <div className="user-status">{currentFriend.is_active?'Online':'Offline'}</div>
+                                                <div className="user-status">{currentFriend.active ? 'Online' : 'Offline'}</div>
                                             </div>
                                         </div>
                                         <div className="chat-options">
-                                            <Link to={"/videochat"} state={{ room: room, username:user.username }} data-toggle="modal" data-target="#video_call">
+                                            <Link to={"/videochat"} state={{ room: room, username: user.username }} data-toggle="modal" data-target="#video_call">
                                                 <i className="material-icons">videocam</i>
                                             </Link>
                                             <a data-toggle="modal" data-target="#voice_call">
@@ -207,7 +209,7 @@ const Chat = () => {
                                                         return (
                                                             <li className="media received">
                                                                 <div className="avatar">
-                                                                    <img src="assets/img/doctors/doctor-thumb-02.jpg" alt="User Image" className="avatar-img rounded-circle" />
+                                                                    <img src={url + currentFriend.profilepic} alt="User Image" className="avatar-img rounded-circle" />
                                                                 </div>
                                                                 <div className="media-body">
                                                                     <div className="msg-box">

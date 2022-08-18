@@ -27,6 +27,7 @@ function DoctorView() {
         }
 
     }
+    
     if (!doctor) return null;
     return (
         <div className="content">
@@ -37,12 +38,12 @@ function DoctorView() {
                         <div className="doctor-widget">
                             <div className="doc-info-left">
                                 <div className="doctor-img">
-                                    <img src="/assets/img/doctors/doctor-thumb-02.jpg" className="img-fluid" alt="User Image" />
+                                    <img src={"http://127.0.0.1:8000/"+doctor.profilepic} className="img-fluid" alt="User Image" />
                                 </div>
                                 <div className="doc-info-cont">
                                     <h4 className="doc-name">{doctor.first_name} {doctor.last_name}</h4>
+                                    <p class="doc-speciality">BDS, MDS - Oral & Maxillofacial Surgery</p>
                                     <p className="doc-department"><img src="/assets/img/specialities/specialities-05.png" className="img-fluid" alt="Speciality" />Psychiatrist</p>
-
                                 </div>
                             </div>
                             <div className="doc-info-right">

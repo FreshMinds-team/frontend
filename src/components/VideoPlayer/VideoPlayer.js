@@ -11,7 +11,7 @@ const VideoPlayer = (props) => {
 
   return (
     <div>
-        <video className="video-player-1 mirror" id="user-1" ref={ref} autoPlay playsInline></video>
+        <video className="video-player-1 mirror size-video" id="user-1" ref={ref} autoPlay playsInline></video>
     </div>
   )
 }

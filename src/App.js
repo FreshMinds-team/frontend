@@ -12,6 +12,10 @@ import BookingPage from './pages/BookingPage/BookingPage';
 import PatientPage from './pages/PatientPage/PatientPage';
 import Meditation from './pages/Meditation/Meditation';
 import Payment from './pages/Payment/Payment';
+import BlogPage from './pages/BlogPage/BlogPage';
+import BookingSuccessPage from './pages/BookingSuccessPage/BookingSuccessPage';
+import InvoicePage from './pages/InvoicePage/InvoicePage';
+import Blog from './components/Blog/Blog/Blog';
 
 function App() {
   return (
@@ -29,6 +33,10 @@ function App() {
 
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/success" element={<BookingSuccessPage />} />
+          <Route path="/invoice" element={<InvoicePage />} />
+          <Route path="/news" element={<BlogPage />} />
+          <Route path="/news/:blogId" element={<Blog />} />
 
           <Route path="/videochat" element={<PrivateRoute>
               <VideoChat />

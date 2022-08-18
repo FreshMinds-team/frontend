@@ -1,21 +1,16 @@
-import React, { useContext, useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useContext, useEffect, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import Footer from '../../components/Footer/Footer'
 import Header from '../../components/Header/Header'
 import AuthContext from '../../context/AuthContext'
 
 const LoginPage = () => {
-  let { loginUser, registerUser } = useContext(AuthContext)
-
-  const [toggle, settoggle] = useState(true)
-
-  const toggleSignUp = () => {
-    settoggle(false)
-  };
-
-  const toggleSignIn = () => {
-    settoggle(true)
-  };
+  let { user,loginUser, registerUser } = useContext(AuthContext)
+  let navigate = useNavigate()
+  
+  useEffect(()=>{
+    if(user) return navigate('/')
+  },[])
 
   return (
     <div>
@@ -29,7 +24,7 @@ const LoginPage = () => {
               <div className="account-content">
                 <div className="row align-items-center justify-content-center">
                   <div className="col-md-7 col-lg-6 login-left">
-                    <img src="/assets/img/login-banner.png" className="img-fluid" alt="Doccure Login" />
+                    <img src="/assets/img/login-banner.png" className="img-fluid" alt="Fresh Minds Login" />
                   </div>
                   <div className="col-md-12 col-lg-6 login-right">
                     <div className="login-header">
