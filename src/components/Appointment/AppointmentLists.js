@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react'
 import AuthContext from '../../context/AuthContext'
 
-const baseURL = 'http://127.0.0.1:8000/api/'
+const baseURL = 'https://rshishir.pythonanywhere.com/api/'
 const AppointmentLists = () => {
     let { authTokens} = useContext(AuthContext)
     const [appointments, setappointments] = useState([]);

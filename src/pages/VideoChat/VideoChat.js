@@ -12,7 +12,7 @@ const videoConstraints = {
   width: window.innerWidth / 2
 };
 
-const url ='http://127.0.0.1:8000/'
+const url ='https://rshishir.pythonanywhere.com/'
 const VideoChat = () => {
   const location = useLocation()
   let navigate = useNavigate();

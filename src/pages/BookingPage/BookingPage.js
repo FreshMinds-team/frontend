@@ -6,9 +6,9 @@ import Title from '../../components/Title/Title'
 import BookAppointment from '../../components/Appointment/BookAppointment'
 import { useNavigate } from 'react-router-dom'
 
-const url = "http://127.0.0.1:8000/media/"
+const url = "https://rshishir.pythonanywhere.com/media/"
 const AppointmentPage = () => {
-  const baseURL = 'http://127.0.0.1:8000/api/'
+  const baseURL = 'https://rshishir.pythonanywhere.com/api/'
 	let { authTokens, logoutUser, user } = useContext(AuthContext)
 	const [appointment, setappointment] = useState({})
   const navigate = useNavigate()

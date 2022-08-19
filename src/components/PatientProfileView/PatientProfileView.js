@@ -5,7 +5,7 @@ import dateFormat from "dateformat"
 import PatientAppointments from './PatientAppointments'
 
 const PatientProfileView = () => {
-    const url = "http://127.0.0.1:8000/media/"
+    const url = "https://rshishir.pythonanywhere.com/media/"
     let { user } = useContext(AuthContext)
 
     if (!user) return null

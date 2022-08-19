@@ -13,7 +13,7 @@ function DoctorView() {
     }, [])
 
     let doctorInfo = async () => {
-        let response = await fetch('http://127.0.0.1:8000/api/doctor/details/' + doctorId, {
+        let response = await fetch('https://rshishir.pythonanywhere.com/api/doctor/details/' + doctorId, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -38,7 +38,7 @@ function DoctorView() {
                         <div className="doctor-widget">
                             <div className="doc-info-left">
                                 <div className="doctor-img">
-                                    <img src={"http://127.0.0.1:8000/"+doctor.profilepic} className="img-fluid" alt="User Image" />
+                                    <img src={"https://rshishir.pythonanywhere.com/"+doctor.profilepic} className="img-fluid" alt="User Image" />
                                 </div>
                                 <div className="doc-info-cont">
                                     <h4 className="doc-name">Dr. {doctor.first_name} {doctor.last_name}</h4>

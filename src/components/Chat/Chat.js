@@ -5,7 +5,7 @@ import io from "socket.io-client"
 import Moment from 'react-moment'
 import { Link } from 'react-router-dom'
 
-const url = 'http://127.0.0.1:8000/'
+const url = 'https://rshishir.pythonanywhere.com/'
 const socket = io.connect("https://socket-fresh-minds.herokuapp.com/");
 const Chat = () => {
     let { authTokens, logoutUser, user } = useContext(AuthContext)
@@ -72,7 +72,7 @@ const Chat = () => {
             await socket.emit("send_message", messageData);
             setMessageList((list) => [...list, messageData]);
 
-            let response = await fetch('http://127.0.0.1:8000/api/chats/add', {
+            let response = await fetch('https://rshishir.pythonanywhere.com/api/chats/add', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -89,7 +89,7 @@ const Chat = () => {
         }
     };
     let getFriends = async () => {
-        let response = await fetch('http://127.0.0.1:8000/api/doctor/', {
+        let response = await fetch('https://rshishir.pythonanywhere.com/api/doctor/', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -111,7 +111,7 @@ const Chat = () => {
 
     let getChats = async () => {
         if (room !== undefined) {
-            let response = await fetch('http://127.0.0.1:8000/api/chat/' + room, {
+            let response = await fetch('https://rshishir.pythonanywhere.com/api/chat/' + room, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',

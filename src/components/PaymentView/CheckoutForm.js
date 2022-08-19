@@ -39,7 +39,7 @@ export const CheckoutForm = ({ props }) => {
                             price: props.price,
                             payment_id: String(respons.data.message)
                         };
-                        let response = await fetch('http://127.0.0.1:8000/api/appointment/add/', {
+                        let response = await fetch('https://rshishir.pythonanywhere.com/api/appointment/add/', {
                             method: 'POST',
                             headers: {
                                 'Content-Type': 'application/json',

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Carousel from 'react-elastic-carousel';
 import { Link } from 'react-router-dom';
 
-const baseURL = 'http://127.0.0.1:8000/api/doctor/'
+const baseURL = 'https://rshishir.pythonanywhere.com/api/doctor/'
 const Popular = () => {
 	const [doctors, setdoctors] = useState([]);
     useEffect(() => {
@@ -48,7 +48,7 @@ const Popular = () => {
 								<div key={index} className="profile-widget">
 									<div className="doc-img">
 										<Link to={"/doctor/"+doctor.id}>
-											<img className="img-fluid fixed-size" alt="User Image" src={"http://127.0.0.1:8000/"+doctor.profilepic} />
+											<img className="img-fluid fixed-size" alt="User Image" src={"https://rshishir.pythonanywhere.com/"+doctor.profilepic} />
 										</Link>
 									</div>
 									<div className="pro-content">

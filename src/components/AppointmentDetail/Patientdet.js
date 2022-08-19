@@ -3,7 +3,7 @@ import AuthContext from '../../context/AuthContext';
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 
-const baseURL = 'http://127.0.0.1:8000/api/'
+const baseURL = 'https://rshishir.pythonanywhere.com/api/'
 const Patientdet = ({ appointment }) => {
     let { authTokens } = useContext(AuthContext)
     const navigate = useNavigate()
@@ -43,7 +43,7 @@ const Patientdet = ({ appointment }) => {
             <div className="doctor-widget">
                 <div className="doc-info-left">
                     <div className="doctor-img">
-                        <img src={"http://127.0.0.1:8000/" + appointment.patient.profilepic} className="img-fluid" alt="User Image" />
+                        <img src={"https://rshishir.pythonanywhere.com/" + appointment.patient.profilepic} className="img-fluid" alt="User Image" />
                     </div>
                     <div className="doc-info-cont">
                         <h4 className="doc-name">{appointment.patient.first_name} {appointment.patient.last_name}</h4>

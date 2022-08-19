@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-const baseURL = 'http://127.0.0.1:8000/api/experience/'
+const baseURL = 'https://rshishir.pythonanywhere.com/api/experience/'
 const Experience = ({id}) => {
     const [experiences, setExperiences] = useState([]);
     useEffect(() => {
