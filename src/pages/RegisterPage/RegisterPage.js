@@ -1,11 +1,15 @@
-import React, { useContext, useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useContext, useState, useEffect } from 'react'
+import { Link , useNavigate } from 'react-router-dom'
 import AuthContext from '../../context/AuthContext'
 import Footer from '../../components/Footer/Footer'
 import Header from '../../components/Header/Header'
 
 const LoginPage = () => {
-    let { registerUser } = useContext(AuthContext)
+    let { registerUser,user } = useContext(AuthContext)
+    let navigate = useNavigate()
+    useEffect(()=>{
+        if(user) return navigate(-1)
+      },[])
 
     return (
         <div>

@@ -41,16 +41,14 @@ function DoctorView() {
                                     <img src={"http://127.0.0.1:8000/"+doctor.profilepic} className="img-fluid" alt="User Image" />
                                 </div>
                                 <div className="doc-info-cont">
-                                    <h4 className="doc-name">{doctor.first_name} {doctor.last_name}</h4>
-                                    <p class="doc-speciality">BDS, MDS - Oral & Maxillofacial Surgery</p>
-                                    <p className="doc-department"><img src="/assets/img/specialities/specialities-05.png" className="img-fluid" alt="Speciality" />Psychiatrist</p>
+                                    <h4 className="doc-name">Dr. {doctor.first_name} {doctor.last_name}</h4>
+                                    <p><i className="fas fa-envelope"></i> {doctor.email}</p>
+                                    <p><i className="fas fa-map-marker"></i> {doctor.address}</p>
+                                    <p><i className="fas fa-phone"></i> {doctor.phone}</p>
                                 </div>
                             </div>
                             <div className="doc-info-right">
                                 <div className="clini-infos">
-                                </div>
-                                <div className="clinic-booking">
-                                    <a className="apt-btn" href="booking.html">Book Appointment</a>
                                 </div>
                             </div>
                         </div>

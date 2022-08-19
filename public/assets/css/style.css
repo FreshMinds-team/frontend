@@ -85,7 +85,11 @@ Version      : 1.0
 	-moz-osx-font-smoothing: grayscale;
 	font-feature-settings: 'liga';
 }
-
+.flex-row{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
 html {
     height: 100%;
 }

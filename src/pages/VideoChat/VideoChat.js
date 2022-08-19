@@ -12,6 +12,7 @@ const videoConstraints = {
   width: window.innerWidth / 2
 };
 
+const url ='http://127.0.0.1:8000/'
 const VideoChat = () => {
   const location = useLocation()
   let navigate = useNavigate();
@@ -22,6 +23,7 @@ const VideoChat = () => {
   const peersRef = useRef([]);
   const roomID = location.state?.roomID;
   const username = location.state?.username;
+  const friend = location.state?.friend;
   let [runningStream,setRunningState] = useState();
   console.log(location.state)
 
@@ -116,7 +118,7 @@ const VideoChat = () => {
                             className="avatar avatar-sm mr-2"
                           >
                             <img
-                              src="assets/img/patients/patient1.jpg"
+                              src={url+friend.profilepic}
                               alt="User Image"
                               className="rounded-circle"
                             />
@@ -124,9 +126,9 @@ const VideoChat = () => {
                           </a>
                         </div>
                         <div className="user-info float-left">
-                          <a><span>{username}</span></a
+                          <a><span>{friend.first_name} {friend.last_name}</span></a
                           >
-                          <span className="last-seen">Online</span>
+                          <span className="last-seen">{friend.active?'Online':'Offline'}</span>
                         </div>
                       </div>
                       <div>
@@ -141,7 +143,7 @@ const VideoChat = () => {
                   <div className="call-contents">
                     <div className="call-content-wrap">
                       <div className="user-video">
-                        {peers.map((peer, index) => {
+                        {peers.slice(0,1).map((peer, index) => {
                           return (
                             <VideoPlayer key={index} peer={peer} />
                           );

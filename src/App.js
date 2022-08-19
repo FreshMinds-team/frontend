@@ -16,6 +16,9 @@ import BlogPage from './pages/BlogPage/BlogPage';
 import BookingSuccessPage from './pages/BookingSuccessPage/BookingSuccessPage';
 import InvoicePage from './pages/InvoicePage/InvoicePage';
 import Blog from './components/Blog/Blog/Blog';
+import PatientProfile from './pages/PatientProfile/PatientProfile';
+import Refund from './pages/Refund/Refund';
+import AppointmentDetailPage from './pages/AppointmentDetailPage/AppointmentDetailPage';
 
 function App() {
   return (
@@ -33,10 +36,12 @@ function App() {
 
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/success" element={<BookingSuccessPage />} />
-          <Route path="/invoice" element={<InvoicePage />} />
           <Route path="/news" element={<BlogPage />} />
           <Route path="/news/:blogId" element={<Blog />} />
+
+          <Route path="/success" element={<PrivateRoute><BookingSuccessPage /></PrivateRoute>} />
+          <Route path="/invoice" element={<PrivateRoute><InvoicePage /></PrivateRoute>} />
+          <Route path="/appointment/detail" element={<PrivateRoute><AppointmentDetailPage /></PrivateRoute>} />
 
           <Route path="/videochat" element={<PrivateRoute>
               <VideoChat />
@@ -58,6 +63,13 @@ function App() {
 
           <Route path="/appointment/book" element={<PrivateRoute>
               <BookingPage />
+            </PrivateRoute>} />
+
+          <Route path="/profile" element={<PrivateRoute>
+              <PatientProfile />
+            </PrivateRoute>} />
+          <Route path="/refund" element={<PrivateRoute>
+              <Refund />
             </PrivateRoute>} />
             
           <Route path="doctor/:doctorId" element={<DoctorViewPage />} />

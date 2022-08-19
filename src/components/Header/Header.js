@@ -1,14 +1,37 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState,useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import AuthContext from '../../context/AuthContext'
 
+const url = "http://127.0.0.1:8000/media/"
 const Header = () => {
-	let { logoutUser, user } = useContext(AuthContext)
-	if(user){
-		if(user.type === 'Doctor'){
-            logoutUser()
-        }
+	const baseURL = 'http://127.0.0.1:8000/api/'
+	let { authTokens, logoutUser, user } = useContext(AuthContext)
+	const [appointment, setappointment] = useState({})
+	if (user) {
+		if (user.type === 'Doctor') {
+			logoutUser()
+		}
 	}
+	useEffect(() => {
+		if (user) {
+			const fetchappointments = async () => {
+				let response = await fetch(baseURL + 'appointment/pending/'+user.id, {
+					method: 'GET',
+					headers: {
+						'Content-Type': 'application/json',
+						'Authorization': 'Bearer ' + String(authTokens.access)
+					}
+				})
+				let data = await response.json()
+				if (response.status === 200) {
+					setappointment(data[0])
+					console.log(data[0])
+				}
+			};
+			fetchappointments();
+		}
+	}, []);
+
 	return (
 		<header className="header">
 			<nav className="navbar navbar-expand-lg header-nav">
@@ -37,14 +60,15 @@ const Header = () => {
 						<li className="active">
 							<Link to="/">Home</Link>
 						</li>
-						<li className="has-submenu">
-							<a>Appointments <i className="fas fa-chevron-down"></i></a>
-							<ul className="submenu">
-								<li><Link to="/appointment">Appointment List</Link></li>
-								<li><Link to="/appointment/book">Request an appointment.</Link></li>
-							</ul>
-						</li>
-
+						{user?(
+						<li>{appointment?(
+							<Link to='/appointment/detail' state={{appointment:appointment}}>View Appointment</Link>
+						):(
+							<Link to="/appointment/book">Request an appointment</Link>
+						)}</li>):(
+							<li><Link to="/Login">Request an appointment</Link></li>
+						)}
+						
 						<li>
 							<Link to="/chat">Chat</Link>
 						</li>
@@ -58,6 +82,33 @@ const Header = () => {
 					</ul>
 				</div>
 				<ul className="nav header-navbar-rht">
+
+
+					{
+						!user ? (
+							<li className="nav-item">
+								<Link className="nav-link header-login" to="/login">login / Signup </Link>
+							</li>
+						) : (
+							<li className="nav-item dropdown has-arrow">
+								<a href="#" className="dropdown-toggle nav-link" data-toggle="dropdown">
+									<span className="user-img"><img className="rounded-circle" src={url + user.profilepic} width="31" /></span>
+								</a>
+								<div className="dropdown-menu">
+									<div className="user-header">
+										<div className="avatar avatar-sm">
+											<img src={url + user.profilepic} alt="User Image" className="avatar-img rounded-circle" />
+										</div>
+										<div className="user-text">
+											<h6>{user.first_name} {user.last_name}</h6>
+											<p className="text-muted mb-0">{user.username}</p>
+										</div>
+									</div>
+									<Link className="dropdown-item" to="/profile">My Profile</Link>
+									<a className="dropdown-item" onClick={logoutUser}>Logout</a>
+								</div>
+							</li>
+						)}
 					<li className="nav-item contact-item">
 						<div className="header-contact-img">
 							<i className="far fa-hospital"></i>
@@ -66,15 +117,6 @@ const Header = () => {
 							<p className="contact-header">Contact</p>
 							<p className="contact-info-header"> +977-01-49652770</p>
 						</div>
-					</li>
-					<li className="nav-item">
-						{
-						!user?(
-							<Link className="nav-link header-login" to="/login">login / Signup </Link>
-						):(
-							<a className="nav-link header-login" onClick={logoutUser}>Logout</a>
-						)}
-						
 					</li>
 				</ul>
 			</nav>

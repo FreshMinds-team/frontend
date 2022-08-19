@@ -59,7 +59,7 @@ const Popular = () => {
 										<p className="speciality">Psychiatrist</p>
 										<div className="row row-sm flex-gara">
 											<div >
-												<Link to={"/doctor/"+doctor.id} className="btn view-btn">View Profile</Link>
+												<Link to={"/doctor/"+doctor.id} className="btn book-btn">View Profile</Link>
 											</div>
 											<div >
 												<Link to="/appointment/book" className="btn book-btn">Request an Appointment</Link>

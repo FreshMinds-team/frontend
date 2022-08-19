@@ -5,7 +5,6 @@ const baseURL = 'http://127.0.0.1:8000/api/'
 const AppointmentLists = () => {
     let { authTokens} = useContext(AuthContext)
     const [appointments, setappointments] = useState([]);
-    const [patients, setpatients] = useState([]);
 
     useEffect(() => {
         const fetchappointments = async () => {
@@ -29,8 +28,7 @@ const AppointmentLists = () => {
     return (
        <div>
          {
-            appointments.map((appointment, index) => {
-                    
+            appointments.map((appointment, index) => {                    
                 return (
                     <div className="appointment-list" key={index}>
                         <div className="profile-info-widget">

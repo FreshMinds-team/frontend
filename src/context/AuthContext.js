@@ -30,7 +30,7 @@ export const AuthProvider = ({ children }) => {
             setAuthTokens(data)
             setUser(jwt_decode(data.access))
             localStorage.setItem('authTokens', JSON.stringify(data))
-            navigate('/')
+            navigate(-1)
         } else {
             alert('Something went wrong!')
         }
@@ -69,7 +69,6 @@ export const AuthProvider = ({ children }) => {
     }
 
     const setActive = async()=>{
-        console.log(user.id)
         let response = await fetch('http://127.0.0.1:8000/api/user/partial/' + user.id, {
             method: 'POST',
             headers: {
@@ -139,7 +138,7 @@ export const AuthProvider = ({ children }) => {
             updateToken()
         }
 
-        let fourMinutes = 1000 * 60 * 4
+        let fourMinutes = 1000 * 30 * 7
 
         let interval = setInterval(() => {
             if (authTokens) {

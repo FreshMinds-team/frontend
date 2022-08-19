@@ -3,7 +3,7 @@ import AuthContext from '../../context/AuthContext'
 import html2canvas from 'html2canvas';
 import { jsPDF } from 'jspdf';
 
-const Invoice = ({ props }) => {
+const RefundInvoice = ({ props }) => {
     let { user } = useContext(AuthContext)
     const printRef = useRef();
 
@@ -26,7 +26,7 @@ const Invoice = ({ props }) => {
         <div className="content" >
             <div className="container-fluid">
                 <button className="btn msg-send-btn" onClick={handleDownloadPdf}>
-                    <i class="fa fa-print" aria-hidden="true"></i>
+                    <i className="fa fa-print" aria-hidden="true"></i>
                 </button>
                 <div className="row" ref={printRef}>
                     <div className="col-lg-8 offset-lg-2">
@@ -64,11 +64,17 @@ const Invoice = ({ props }) => {
                             </div>
                             <div className="invoice-item">
                                 <div className="row">
-                                    <div className="col-md-12">
-                                        <div className="invoice-info">
+                                    <div className="col-md-12 flex-row">
+                                        <div className="invoice-info col-md-6">
                                             <strong className="customer-text">Payment Method</strong>
                                             <p className="invoice-details invoice-details-two">
-                                                Online Transaction <br />
+                                            Online Transaction <br />
+                                            </p>
+                                        </div>
+                                        <div className="invoice-info col-md-6">
+                                            <strong className="customer-text">Payment Type</strong>
+                                            <p className="invoice-details invoice-details-two">
+                                                Refund <br />
                                             </p>
                                         </div>
                                     </div>
@@ -83,8 +89,8 @@ const Invoice = ({ props }) => {
                                                     <tr>
                                                         <th>Description</th>
                                                         <th className="text-center">Quantity</th>
-                                                        <th className="text-center">Date</th>
-                                                        <th className="text-center">Time</th>
+                                                        <th className="text-center">Appointed Date</th>
+                                                        <th className="text-center">Appointed Time</th>
                                                         <th className="text-right">Total</th>
                                                     </tr>
                                                 </thead>
@@ -92,8 +98,8 @@ const Invoice = ({ props }) => {
                                                     <tr>
                                                         <td>General Consultation</td>
                                                         <td className="text-center">1</td>
-                                                        <td className="text-right">{props.date}</td>
-                                                        <td className="text-right">{props.time}</td>
+                                                        <td className="text-right">{props.appointment_date}</td>
+                                                        <td className="text-right">{props.appointment_time}</td>
                                                         <td className="text-right">${props.price}</td>
                                                     </tr>
                                                 </tbody>
@@ -125,4 +131,4 @@ const Invoice = ({ props }) => {
     )
 }
 
-export default Invoice
+export default RefundInvoice

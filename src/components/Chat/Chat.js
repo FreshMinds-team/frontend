@@ -193,7 +193,7 @@ const Chat = () => {
                                             </div>
                                         </div>
                                         <div className="chat-options">
-                                            <Link to={"/videochat"} state={{ room: room, username: user.username }} data-toggle="modal" data-target="#video_call">
+                                            <Link to={"/videochat"} state={{ room: room, username: user.username, friend:currentFriend }} data-toggle="modal" data-target="#video_call">
                                                 <i className="material-icons">videocam</i>
                                             </Link>
                                             <a data-toggle="modal" data-target="#voice_call">
