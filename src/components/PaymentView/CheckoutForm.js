@@ -21,7 +21,7 @@ export const CheckoutForm = ({ props }) => {
             try {
                 const { id } = paymentMethod;
                 const respons = await axios.post(
-                    "http://localhost:8080/stripe/charge",
+                    "https://stripe-server-fresh-minds.herokuapp.com//stripe/charge",
                     {
                         amount: parseInt(props.price)*100,
                         id: id,

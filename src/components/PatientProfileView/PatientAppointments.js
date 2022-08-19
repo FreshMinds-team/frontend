@@ -40,7 +40,7 @@ const PatientAppointments = () => {
               
             if (response.status === 200) {
                 const result = await axios.post(
-                    "http://localhost:8080/stripe/refund",
+                    "https://stripe-server-fresh-minds.herokuapp.com//stripe/refund",
                     {
                         amount: parseInt(appointment.price)*100,
                         id: appointment.payment_id,

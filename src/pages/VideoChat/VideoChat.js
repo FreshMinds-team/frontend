@@ -43,6 +43,7 @@ const VideoChat = () => {
           })
           peers.push(peer);
         })
+
         setPeers(peers);
       })
 
@@ -143,7 +144,7 @@ const VideoChat = () => {
                   <div className="call-contents">
                     <div className="call-content-wrap">
                       <div className="user-video">
-                        {peers.slice(0,1).map((peer, index) => {
+                        {peers.map((peer, index) => {
                           return (
                             <VideoPlayer key={index} peer={peer} />
                           );
