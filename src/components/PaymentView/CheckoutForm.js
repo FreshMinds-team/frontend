@@ -5,7 +5,7 @@ import AuthContext from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 export const CheckoutForm = ({ props }) => {
-    let { authTokens, logoutUser, user } = useContext(AuthContext)
+    let { authTokens, user } = useContext(AuthContext)
     const stripe = useStripe();
     const elements = useElements();
     const navigate = useNavigate()
