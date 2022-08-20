@@ -4,8 +4,9 @@ import { useParams } from 'react-router-dom';
 import Header from '../../Header/Header';
 import Footer from '../../Footer/Footer';
 import PopularPosts from '../../PopularPosts/PopularPosts';
+import ReactHtmlParser from 'react-html-parser';
 
-const baseURL = 'https://api.npoint.io/b68e163f8b94cd52b6bf/DIV/'
+
 const Blog = () => {
     let { blogId } = useParams();
     const [blog, setblog] = useState(blogDb()[blogId]);
@@ -28,11 +29,11 @@ const Blog = () => {
                                     <img src={blog.IMAge} alt="" className="img-fluid" />
                                     <div className="blog-item-content mt-5">
                                         <p>
-                                            {blog.BRIEF}
+                                            {ReactHtmlParser(blog.BRIEF)}
                                         </p>
                                         <div className="mt-5 clearfix">
                                             <ul className="float-right list-inline">
-                                                <li className="list-inline-item"> <a href={blog.TITLE_url}>Read More</a> </li>
+                                                <li className="list-inline-item"> <a href={blog.TITLE_url}>Read From Source</a> </li>
                                             </ul>
                                         </div>
                                     </div>

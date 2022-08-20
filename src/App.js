@@ -20,6 +20,7 @@ import PatientProfile from './pages/PatientProfile/PatientProfile';
 import Refund from './pages/Refund/Refund';
 import AppointmentDetailPage from './pages/AppointmentDetailPage/AppointmentDetailPage';
 import CalmVideos from './pages/CalmVideos/CalmVideos';
+import NewsRedirect from './pages/NewsRedirect';
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/news" element={<BlogPage />} />
           <Route path="/news/:blogId" element={<Blog />} />
+          <Route path="/redirect/:blogId" element={<NewsRedirect />} />
 
           <Route path="/success" element={<PrivateRoute><BookingSuccessPage /></PrivateRoute>} />
           <Route path="/invoice" element={<PrivateRoute><InvoicePage /></PrivateRoute>} />

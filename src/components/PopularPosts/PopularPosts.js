@@ -10,10 +10,10 @@ const PopularPosts = () => {
             <div className="sidebar-widget latest-post mb-3">
                 <h5>Popular News</h5>
                 {
-                  blogs.slice(0,5).map((blog, index) => {
+                  blogs.slice(0,5).map((news, index) => {
                     return (
                 <div className="py-2">
-                    <h6 className="my-2"><Link to={"/news/" + blog.id}>{blog.TITLE}</Link></h6>
+                    <h6 className="my-2"><Link to={"/redirect/" + news.id}>{news.TITLE}</Link></h6>
                 </div>
                     )}
                 )}
