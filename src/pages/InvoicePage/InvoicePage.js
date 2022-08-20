@@ -6,6 +6,7 @@ import Invoice from '../../components/Invoice/Invoice'
 import Title from '../../components/Title/Title'
 
 const InvoicePage = () => {
+  window.scrollTo(0, 0)
   const location = useLocation()
   const {props} = location.state
   return (

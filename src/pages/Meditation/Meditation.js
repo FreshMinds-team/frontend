@@ -13,6 +13,7 @@ import styled from "styled-components";
 
 
 const Meditation = () => {
+	window.scrollTo(0, 0)
 	// Ref
 	const audioRef = useRef(null);
 

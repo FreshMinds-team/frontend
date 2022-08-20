@@ -5,6 +5,7 @@ import { useLocation } from 'react-router-dom'
 import RefundInvoice from '../../components/Invoice/RefundInvoice'
 
 const Refund = () => {
+    window.scrollTo(0, 0)
     const location = useLocation()
     const {appointment} = location.state
 

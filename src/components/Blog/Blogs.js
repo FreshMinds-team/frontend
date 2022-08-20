@@ -1,25 +1,17 @@
 import React, { useState, useEffect } from 'react'
-import axios from 'axios'
+import blogDb from "../../pages/BlogPage/blogdb";
 import Pagination from './Pagination/Pagination'
 import { Link } from 'react-router-dom';
 import './Blog.css'
-const baseURL = 'https://api.npoint.io/b68e163f8b94cd52b6bf/DIV/'
+import PopularPosts from '../PopularPosts/PopularPosts';
+
 const Blogs = () => {
-  const [blogs, setBlogs] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [blogs, setblogs] = useState(blogDb());
   const [currentPage, setCurrentPage] = useState(1);
   const [blogsPerPage] = useState(5);  
 
-  useEffect(() => {
-    const fetchBlogs = async () => {
-      setLoading(true);
-      const res = await axios.get(baseURL);
-      setBlogs(res.data);
-      setLoading(false);
+  useEffect(() => {    
       window.scrollTo(0, 0)
-    };
-
-    fetchBlogs();
   }, []);
 
   useEffect(() => {
@@ -75,33 +67,7 @@ const Blogs = () => {
             </div>
           </div>
           <div className="col-lg-4">
-            <div className="sidebar-wrap pl-lg-4 mt-5 mt-lg-0">
-              <div className="sidebar-widget latest-post mb-3">
-                <h5>Popular News</h5>
-
-                <div className="py-2">
-                  <span className="text-sm text-muted">03 Mar 2018</span>
-                  <h6 className="my-2"><a href="#">Thoughtful living in los Angeles</a></h6>
-                </div>
-
-                <div className="py-2">
-                  <span className="text-sm text-muted">03 Mar 2018</span>
-                  <h6 className="my-2"><a href="#">Vivamus molestie gravida turpis.</a></h6>
-                </div>
-
-                <div className="py-2">
-                  <span className="text-sm text-muted">03 Mar 2018</span>
-                  <h6 className="my-2"><a href="#">Fusce lobortis lorem at ipsum semper sagittis</a></h6>
-                </div>
-              </div>
-
-       
-
-
-
-              
-
-            </div>
+            <PopularPosts />
           </div>
         </div>
       </div>

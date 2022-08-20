@@ -5,6 +5,7 @@ import Header from '../../components/Header/Header'
 import AuthContext from '../../context/AuthContext'
 
 const LoginPage = () => {
+  window.scrollTo(0, 0)
   let { user,loginUser, registerUser } = useContext(AuthContext)
   let navigate = useNavigate()
   

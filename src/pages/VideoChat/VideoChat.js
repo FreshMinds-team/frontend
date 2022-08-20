@@ -14,6 +14,7 @@ const videoConstraints = {
 
 const url ='https://rshishir.pythonanywhere.com/'
 const VideoChat = () => {
+  window.scrollTo(0, 0)
   const location = useLocation()
   let navigate = useNavigate();
 

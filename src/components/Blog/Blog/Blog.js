@@ -1,19 +1,14 @@
 import React, { useState, useEffect } from 'react'
-import axios from 'axios'
+import blogDb from "../../../pages/BlogPage/blogdb";
 import { useParams } from 'react-router-dom';
 import Header from '../../Header/Header';
 import Footer from '../../Footer/Footer';
+import PopularPosts from '../../PopularPosts/PopularPosts';
 
 const baseURL = 'https://api.npoint.io/b68e163f8b94cd52b6bf/DIV/'
 const Blog = () => {
     let { blogId } = useParams();
-    const [blog, setBlog] = useState();
-
-    useEffect(() => {
-        axios.get(baseURL + blogId).then((response) => {
-            setBlog(response.data);
-        });
-    }, []);
+    const [blog, setblog] = useState(blogDb()[blogId]);
 
     if (!blog) return null;
     return (
@@ -37,11 +32,7 @@ const Blog = () => {
                                         </p>
                                         <div className="mt-5 clearfix">
                                             <ul className="float-right list-inline">
-                                                <li className="list-inline-item"> Share: </li>
-                                                <li className="list-inline-item"><a href="#!"><i className="icofont-facebook"></i></a></li>
-                                                <li className="list-inline-item"><a href="#!"><i className="icofont-twitter"></i></a></li>
-                                                <li className="list-inline-item"><a href="#!"><i className="icofont-pinterest"></i></a></li>
-                                                <li className="list-inline-item"><a href="#!"><i className="icofont-linkedin"></i></a></li>
+                                                <li className="list-inline-item"> <a href={blog.TITLE_url}>Read More</a> </li>
                                             </ul>
                                         </div>
                                     </div>
@@ -50,27 +41,7 @@ const Blog = () => {
                         </div>
                     </div>
                     <div className="col-lg-4">
-                        <div className="sidebar-widget latest-post mb-3">
-                            <h5>Latest Posts</h5>
-
-                            <div className="py-2">
-                                <span className="text-sm text-muted">03 Mar 2018</span>
-                                <h6 className="my-2"><a href="#">Thoughtful living in los Angeles</a></h6>
-                            </div>
-
-                            <div className="py-2">
-                                <span className="text-sm text-muted">03 Mar 2018</span>
-                                <h6 className="my-2"><a href="#">Vivamus molestie gravida turpis.</a></h6>
-                            </div>
-
-                            <div className="py-2">
-                                <span className="text-sm text-muted">03 Mar 2018</span>
-                                <h6 className="my-2"><a href="#">Fusce lobortis lorem at ipsum semper sagittis</a></h6>
-                            </div>
-                        </div>
-
-                        
-
+                        <PopularPosts />
                     </div>
                 </div>
             </div>

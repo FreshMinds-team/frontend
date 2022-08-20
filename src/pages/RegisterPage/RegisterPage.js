@@ -5,6 +5,7 @@ import Footer from '../../components/Footer/Footer'
 import Header from '../../components/Header/Header'
 
 const LoginPage = () => {
+    window.scrollTo(0, 0)
     let { registerUser,user } = useContext(AuthContext)
     let navigate = useNavigate()
     useEffect(()=>{

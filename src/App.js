@@ -19,6 +19,7 @@ import Blog from './components/Blog/Blog/Blog';
 import PatientProfile from './pages/PatientProfile/PatientProfile';
 import Refund from './pages/Refund/Refund';
 import AppointmentDetailPage from './pages/AppointmentDetailPage/AppointmentDetailPage';
+import CalmVideos from './pages/CalmVideos/CalmVideos';
 
 function App() {
   return (
@@ -60,6 +61,7 @@ function App() {
             </PrivateRoute>} />
 
           <Route path="/meditation" element={<Meditation />} />
+          <Route path="/calmvideos" element={<CalmVideos />} />
 
           <Route path="/appointment/book" element={<PrivateRoute>
               <BookingPage />

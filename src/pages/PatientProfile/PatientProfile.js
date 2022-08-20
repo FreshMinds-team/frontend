@@ -4,6 +4,7 @@ import Header from '../../components/Header/Header'
 import PatientProfileView from '../../components/PatientProfileView/PatientProfileView'
 
 const PatientProfile = () => {
+  window.scrollTo(0, 0)
   return (
     <div>
         <Header />

@@ -1,4 +1,4 @@
-import React, { useContext, useState,useEffect } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import AuthContext from '../../context/AuthContext'
 
@@ -15,7 +15,7 @@ const Header = () => {
 	useEffect(() => {
 		if (user) {
 			const fetchappointments = async () => {
-				let response = await fetch(baseURL + 'appointment/pending/'+user.id, {
+				let response = await fetch(baseURL + 'appointment/pending/' + user.id, {
 					method: 'GET',
 					headers: {
 						'Content-Type': 'application/json',
@@ -60,25 +60,22 @@ const Header = () => {
 						<li className="active">
 							<Link to="/">Home</Link>
 						</li>
-						{user?(
-						<li>{appointment?(
-							<Link to='/appointment/detail' state={{appointment:appointment}}>View Appointment</Link>
-						):(
-							<Link to="/appointment/book">Request an appointment</Link>
-						)}</li>):(
+						{user ? (
+							<li>{appointment ? (
+								<Link to='/appointment/detail' state={{ appointment: appointment }}>View Appointment</Link>
+							) : (
+								<Link to="/appointment/book">Request an appointment</Link>
+							)}</li>) : (
 							<li><Link to="/Login">Request an appointment</Link></li>
 						)}
-						
+
 						<li>
 							<Link to="/chat">Chat</Link>
 						</li>
-						<li className="has-submenu">
-							<a>Features <i className="fas fa-chevron-down"></i></a>
-							<ul className="submenu">
-								<li><Link to="/meditation">Meditation</Link></li>
-								<li><Link to="/news">News</Link></li>
-							</ul>
-						</li>
+						<li><Link to="/meditation">Meditation</Link></li>
+						<li><Link to="/news">News</Link></li>
+						<li><Link to="/calmvideos">Video Therapy</Link></li>
+
 					</ul>
 				</div>
 				<ul className="nav header-navbar-rht">

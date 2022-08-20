@@ -5,6 +5,7 @@ import Patient from '../../components/Patient/Patient'
 import Title from '../../components/Title/Title'
 
 const PatientPage = () => {
+  window.scrollTo(0, 0)
   return (
     <div>
         <Header />

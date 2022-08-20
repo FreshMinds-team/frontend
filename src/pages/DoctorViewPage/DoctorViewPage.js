@@ -5,6 +5,7 @@ import Header from '../../components/Header/Header'
 import Title from '../../components/Title/Title'
 
 const DoctorViewPage = () => {
+  window.scrollTo(0, 0)
   return (
     <div>
         <Header />

@@ -5,6 +5,7 @@ import Title from '../../components/Title/Title'
 import Appointment from '../../components/Appointment/Appointment'
 
 const AppointmentPage = () => {
+  window.scrollTo(0, 0)
   return (
     <div>
       <Header />
